@@ -20,11 +20,10 @@ public void setup()
   println("there are " + lines.length + " lines");
   for (int i=0; i < lines.length; i++) 
   {
-    if(palindrome(lines[i])==true)
+    if (palindrome(lines[i])==true)
     {
       println(lines[i] + " IS a palidrome.");
-    }
-    else
+    } else
     {
       println(lines[i] + " is NOT a palidrome.");
     }
@@ -32,10 +31,34 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
+  int m=0;
+  String sWord = new String();
+
+  for (int i = 0; i < word.length (); i++)
+  {
+    if (Character.isLetter(word.charAt(i)) == true )
+    {
+      sWord = sWord + word.charAt(i);
+    }
+  }
+  sWord = sWord.toLowerCase();
+
+
+for ( int n = 0; n < (sWord.length ()/2); n ++)
+{
+  if (sWord.charAt(n) == sWord.charAt(sWord.length()-n-1))
+  {
+    m++;
+  }
+}
+if (m >= sWord.length ()/2)
+{
+  return true;
+} else 
+{
   return false;
 }
-
+}
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "PalindromeChecker" };
     if (passedArgs != null) {
